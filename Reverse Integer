@@ -1,0 +1,24 @@
+int reverse(int x) {
+    char string[11];  
+        int length; 
+        long result;   
+        char temp; 
+        int i, sign;  
+        sign = x>0?1:-1;
+        if(sign < 0)
+            x = abs(x); 
+        sprintf(string, "%d", x);
+        length = strlen(string);
+        if(length == 1)
+            return x;
+        for(i=0; i< length/2; i++) 
+        {
+            temp = string[i];
+            string[i] = string[length - i -1];
+            string[length - i -1] = temp;
+        }
+        result = atol(string);  
+        if(sign* result > 2147483647 || sign* result < -2147483648)   
+            return 0;
+        return (int)sign*result;  
+}
