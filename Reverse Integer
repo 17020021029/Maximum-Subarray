@@ -1,24 +1,27 @@
-int reverse(int x) {
-    char string[11];  
-        int length; 
+ int reverse(int x) {
+    char string[11];    //最大的整型是2147483647，因此11足够
+       int length; 
         long result;   
         char temp; 
         int i, sign;  
-        sign = x>0?1:-1;
+        sign = x>0?1:-1;    //相当于if语句,sign用来记录int的正负
         if(sign < 0)
             x = abs(x); 
-        sprintf(string, "%d", x);
+        sprintf(string, "%d", x);   //sprintf函数:http://blog.csdn.net/u013485792/article/details/50475473
+                                    //将int放进以定义的数组变量
         length = strlen(string);
         if(length == 1)
-            return x;
+            return x;   //如果int为个位数的话一定为回文数字
         for(i=0; i< length/2; i++) 
         {
             temp = string[i];
             string[i] = string[length - i -1];
             string[length - i -1] = temp;
         }
-        result = atol(string);  
+        //将数组进行翻转
+        result = atol(string);  //atol函数: http://blog.csdn.net/hmsiwtv/article/details/9089573
+                                //将翻转后的数组转为int
         if(sign* result > 2147483647 || sign* result < -2147483648)   
-            return 0;
+            return 0;   //若输入数字越出整型范围，则返回0
         return (int)sign*result;  
 }
