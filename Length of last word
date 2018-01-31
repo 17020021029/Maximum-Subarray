@@ -1,0 +1,17 @@
+int lengthOfLastWord(char* s) {
+    if(!s)
+        return 0; //如果s不符合要求，返回0，其实不加也能通过
+    int nums=0;
+    int length;
+    length=strlen(s);
+    while(*(s+length-1)==' ')
+        length--;
+    //去掉后面的空格
+    for(int i=length-1;i>=0;i--)
+    {
+        if(*(s+i)==' ')
+        {break;}
+       else  nums++;
+    } //逆向遍历
+    return nums;
+}
