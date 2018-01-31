@@ -2,10 +2,9 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* twoSum(int* nums, int numsSize, int target) {
-    static int result[2];
+    static int result[2];  //不用static,试过，不能通过
     int *p;
     p=result;
-    int m,n;
     for(int i=0;i<numsSize;i++)
     {
         for(int j=1;j<numsSize;j++)
@@ -16,5 +15,6 @@ int* twoSum(int* nums, int numsSize, int target) {
             }
         }
     }
+    //枚举
     return p;
 }
