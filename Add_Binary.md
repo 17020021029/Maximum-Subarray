@@ -30,7 +30,7 @@ char *addBinary(char *a, char *b) {
     //把str所指区域前(len+2)*sizeof(char)个字节设置成字符0(memset函数:example linkhttps://baike.baidu.com/item/memset/4747579?fr=aladdin)
     j = len-1;temp  = 0;
     for(i=len;i >= 0 && lenA > 0 && lenB > 0; i--){   
-    //从两字符串最后以为开始循环，每层第一行语句是记录保留在return里的结果，第二行语句相当于进位，再计算下一位的情况，直到其中其中一个加完
+ //从两字符串最后以为开始循环，每层第一行语句是记录保留在return里的结果，第二行语句相当于进位，再计算下一位的情况，直到其中其中一个加完
         *(str+i) = ((*(a+lenA-1)-'0') + (*(b+lenB-1)-'0') + temp)%2 + '0';   
         //*(a+len-1)-'0'，将字符型变成整型，最后+'0'又将整型变成字符型，下同
         temp = ((*(a+lenA-1)-'0') + (*(b+lenB-1)-'0') + temp)/2;
